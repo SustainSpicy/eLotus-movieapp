@@ -1,0 +1,19 @@
+.footer {
+  background-color: transparent;
+  color: #ffffffcc;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  .footer-details {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+  .logo_img {
+    min-width: 100px;
+    background-color: #c22020;
+    display: flex;
+    align-items: center;
+  }
+}

@@ -9,13 +9,11 @@
     grid-template-columns: auto 1fr;
     align-items: center;
     gap: 20px;
-    padding: 10px;
+    // padding: 10px;
 
     .logo_img {
       height: 27px;
       min-width: 100px;
-      //   height: 37px;
-      //   width: 37px;
       background-color: #c22020;
     }
     .navItem_wrapper {
@@ -42,7 +40,7 @@
     grid-template-columns: 1fr auto;
     align-items: center;
     gap: 20px;
-    padding: 10px;
+    // padding: 10px;
 
     .searchbar_wrapper {
       -webkit-backdrop-filter: blur(40px) brightness(100%);

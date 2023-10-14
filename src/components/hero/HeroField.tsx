@@ -13,13 +13,13 @@ const HeroField = () => {
         src="https://c.animaapp.com/FexQVYB4/img/rectangle-1.png"
       />
 
-      <div className="heroDetail_wrapper">
+      <div className="hero-detail_wrapper">
         <img
-          className="heroMovie_banner"
+          className="hero-movie_banner"
           alt="banner"
           src="https://c.animaapp.com/FexQVYB4/img/spiderman@2x.png"
         />
-        <div className="heroMovie_tags">
+        <div className="hero-movie_tags">
           <span className="tag">Action</span>
           <div className="dot" />
           <span className="tag">Adventure</span>
@@ -28,12 +28,12 @@ const HeroField = () => {
             2h 28m
           </span>
         </div>
-        <p className="heroMovie_description">
+        <p className="hero-movie_description">
           When a spell goes wrong, dangerous foes from other worlds start to
           appear, forcing Peter to discover what it truly means to be
           Spider-Man.
         </p>
-        <div className="heroMovie_actionBtn">
+        <div className="hero-movie_actionBtn">
           <button type="button">
             <AiFillPlayCircle color="" />
             Watch Now

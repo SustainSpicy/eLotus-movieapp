@@ -14,19 +14,19 @@
     position: relative;
     width: 3px;
   }
-  .heroDetail_wrapper {
+  .hero-detail_wrapper {
     width: 100%;
     position: absolute;
     top: 255px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    .heroMovie_banner {
+    .hero-movie_banner {
       height: 138px;
       object-fit: cover;
       width: 357px;
     }
-    .heroMovie_tags {
+    .hero-movie_tags {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -61,7 +61,7 @@
         }
       }
     }
-    .heroMovie_description {
+    .hero-movie_description {
       color: #ffffffcc;
       font-family: "Inter", Helvetica;
       font-size: 16px;
@@ -71,7 +71,7 @@
       text-align: center;
       max-width: 436px;
     }
-    .heroMovie_actionBtn {
+    .hero-movie_actionBtn {
       display: flex;
       gap: 1rem;
       button {

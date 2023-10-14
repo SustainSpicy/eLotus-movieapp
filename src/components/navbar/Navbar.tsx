@@ -15,7 +15,7 @@ const Navbar = () => {
         </div>
         <div className="navItem_wrapper">
           {navItem.map((item, index) => (
-            <NavItem text={item} />
+            <NavItem text={item} key={index} />
           ))}
         </div>
       </div>
