@@ -1,0 +1,106 @@
+.hero {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  .hero_background {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+  .dot {
+    background-color: #d9d9d9cc;
+    border-radius: 1.5px;
+    height: 3px;
+    position: relative;
+    width: 3px;
+  }
+  .heroDetail_wrapper {
+    width: 100%;
+    position: absolute;
+    top: 255px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .heroMovie_banner {
+      height: 138px;
+      object-fit: cover;
+      width: 357px;
+    }
+    .heroMovie_tags {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      padding: 1rem;
+      height: 20px;
+
+      .tag {
+        color: #ffffffcc;
+        font-family: "SF Compact-Regular", Helvetica;
+        font-size: 20px;
+        font-weight: 400;
+        letter-spacing: 0;
+        line-height: normal;
+        position: relative;
+        white-space: nowrap;
+        width: fit-content;
+        cursor: pointer;
+        padding: 6px 12px;
+
+        &:hover {
+          -webkit-backdrop-filter: blur(40px) brightness(100%);
+          backdrop-filter: blur(40px) brightness(100%);
+          align-items: flex-start;
+          border: 1px solid;
+          border-color: #ffffff80;
+          border-radius: 36px;
+          display: inline-flex;
+          gap: 10px;
+          padding: 6px 12px;
+          position: relative;
+        }
+      }
+    }
+    .heroMovie_description {
+      color: #ffffffcc;
+      font-family: "Inter", Helvetica;
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: 0;
+      line-height: normal;
+      text-align: center;
+      max-width: 436px;
+    }
+    .heroMovie_actionBtn {
+      display: flex;
+      gap: 1rem;
+      button {
+        cursor: pointer;
+        font-family: "SF Compact-Regular", Helvetica;
+        font-size: 20px;
+        font-weight: 400;
+        letter-spacing: 0;
+        line-height: normal;
+        padding: 1rem 3rem;
+        gap: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      button:nth-child(1) {
+        color: #272424;
+        border: 0;
+        border-radius: 36px;
+      }
+      button:nth-child(2) {
+        background-color: transparent;
+        -webkit-backdrop-filter: blur(40px) brightness(100%);
+        backdrop-filter: blur(40px) brightness(100%);
+        color: #ffffffcc;
+        border: 1px solid;
+        border-color: #ffffff80;
+        border-radius: 36px;
+      }
+    }
+  }
+}

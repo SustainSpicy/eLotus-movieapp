@@ -1,0 +1,107 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  color: #ffffffcc;
+  position: absolute;
+  top: 25px;
+  .leftNav {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+
+    .logo_img {
+      height: 27px;
+      min-width: 100px;
+      //   height: 37px;
+      //   width: 37px;
+      background-color: #c22020;
+    }
+    .navItem_wrapper {
+      display: flex;
+      gap: 1rem;
+      .navItem {
+        color: #ffffffcc;
+        font-family: "SF Compact-Regular", Helvetica;
+        font-size: 20px;
+        font-weight: 400;
+        letter-spacing: 0;
+        line-height: normal;
+        margin-top: -1px;
+        position: relative;
+        white-space: nowrap;
+        width: fit-content;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .rightNav {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+
+    .searchbar_wrapper {
+      -webkit-backdrop-filter: blur(40px) brightness(100%);
+      backdrop-filter: blur(40px) brightness(100%);
+      background-color: #0000001a;
+      border: 1px solid;
+      border-color: #ffffff33;
+      border-radius: 40px;
+      height: 39px;
+      position: relative;
+      min-width: 225px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 0.5rem;
+      input {
+        color: #ffffffcc;
+        background: transparent;
+        border: 0;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+    .avatar {
+      height: 40px;
+      width: 40px;
+      background-color: #c22020;
+      border-radius: 50%;
+      position: relative;
+      img {
+        object-fit: cover;
+        width: inherit;
+        height: inherit;
+      }
+    }
+  }
+}
+@media (max-width: 768px) {
+  .navbar {
+    .leftNav {
+      .navItem_wrapper {
+        display: none;
+      }
+    }
+    .rightNav {
+      .searchbar_wrapper {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    .leftNav {
+      .navItem_wrapper {
+        display: none;
+      }
+    }
+  }
+}
