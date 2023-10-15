@@ -1,25 +1,42 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import "./Home.scss";
 import HeroField from "../../components/hero/HeroField";
 import SliderComponent from "../../components/slider/Slider";
+import { getAllComedyMovies, getTrendingMovies } from "../../api";
+import { Movie } from "../../constants/types";
 
 const Home = () => {
+  const [trendingMovies, setTrendingMovies] = useState<Movie[]>([]);
+  const [comedyMovies, setComedyMovies] = useState<Movie[]>([]);
+  useEffect(() => {
+    getTrendingMovies()
+      .then((data) => {
+        setTrendingMovies(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    getAllComedyMovies()
+      .then((data) => {
+        setComedyMovies(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
   return (
     <>
-      <HeroField />
+      <HeroField movie={trendingMovies[0]} />
       <div className="main wrapper">
-        <SliderComponent
+        {/* <SliderComponent
           title={"Latest & Trending"}
-          list={["1", "2", "3", "4", "5", "6", "7", "8"]}
+          list={trendingMovies}
           isTrending={true}
-        />
+        /> */}
 
-        <SliderComponent
-          title={"Action"}
-          list={["1", "2", "3", "6", "7", "8"]}
-        />
-        <SliderComponent title={"Comedy"} list={["4", "8"]} />
+        {/* <SliderComponent title={"Comedy"} list={comedyMovies} /> */}
+        {/* <SliderComponent title={"Animation"} list={trendingMovies} /> */}
       </div>
     </>
   );

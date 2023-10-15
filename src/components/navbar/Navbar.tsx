@@ -1,17 +1,20 @@
+import { Link } from "react-router-dom";
 import NavItem from "./NavItem";
 import "./Navbar.scss";
 import { BsSearch } from "react-icons/bs";
-const navItem = ["Home", "Movies", "Series", "Trending", "Categories"];
+const navItem = ["Movies", "Series", "Trending", "Categories"];
 
 const Navbar = () => {
   return (
-    <div className="navbar wrapper">
+    <div className="navbar  ">
       <div className="leftNav">
         <div className="logo_img">
-          {/* <img
-            alt="Logo"
-            src="https://c.animaapp.com/FexQVYB4/img/frame-31-1.svg"
-          /> */}
+          <Link to={`/`}>
+            <img
+              alt="Logo"
+              src="https://c.animaapp.com/FexQVYB4/img/frame-31-1.svg"
+            />
+          </Link>
         </div>
         <div className="navItem_wrapper">
           {navItem.map((item, index) => (

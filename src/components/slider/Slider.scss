@@ -6,15 +6,43 @@
   //   max-width: 800px;
   margin: 0 auto;
   position: relative;
-  .slider_title {
-    color: #ffffff;
-    font-family: "Inter", Helvetica;
-    font-size: 28px;
-    font-weight: 500;
-    letter-spacing: 0;
-    line-height: normal;
-    text-align: center;
-    padding-left: 4rem;
+
+  .slider-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 1rem;
+    .slider_title {
+      color: #ffffff;
+      font-family: "Inter", Helvetica;
+      font-size: 28px;
+      font-weight: 500;
+      letter-spacing: 0;
+      line-height: normal;
+      text-align: center;
+      padding-left: 4rem;
+    }
+
+    button {
+      cursor: pointer;
+      font-family: "SF Compact-Regular", Helvetica;
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: 0;
+      line-height: normal;
+      padding: 0.5rem;
+      border-radius: 32px;
+      gap: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      border: 1px solid;
+      background-color: transparent;
+      -webkit-backdrop-filter: blur(40px) brightness(100%);
+      backdrop-filter: blur(40px) brightness(100%);
+      color: #ffffffcc;
+    }
   }
 
   .slider-rail {
@@ -32,7 +60,7 @@
     }
     .slider-item {
       position: relative;
-      // min-width: 210px;
+      min-height: 400px;
       cursor: pointer;
       transition: transform 0.3s ease-in-out;
 
@@ -50,6 +78,8 @@
         line-height: normal;
         margin: 0;
         font-stretch: expanded;
+        position: relative;
+        z-index: 1;
       }
       .isTrending {
         left: 60px;

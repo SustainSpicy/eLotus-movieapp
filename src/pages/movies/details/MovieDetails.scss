@@ -1,8 +1,8 @@
-.hero {
-  // height: 100vh;
+.movie-detail {
+  height: 80vh;
   width: 100%;
   position: relative;
-  .hero_background {
+  .movie-detail_background {
     height: 100%;
     object-fit: cover;
     width: 100%;
@@ -14,16 +14,15 @@
     position: relative;
     width: 3px;
   }
-
-  .hero-detail_wrapper {
+  .movie-detail_wrapper {
     width: 100%;
     position: absolute;
-    top: 255px;
+    bottom: 10px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 1rem 0;
-    .hero-detail_title {
+    align-items: flex-start;
+    justify-content: flex-end;
+    .movie-detail_title {
       color: #ffffffcc;
       font-family: "SF Compact-Regular", Helvetica;
       font-size: 30px;
@@ -33,16 +32,15 @@
       max-width: 70%;
       margin: 0;
     }
-
-    .hero-movie_banner {
+    .movie-detail_banner {
       height: 138px;
       object-fit: cover;
       width: 357px;
     }
-    .hero-movie_tags {
+    .movie-detail_tags {
       display: flex;
       align-items: center;
-      justify-content: center;
+      //   justify-content: center;
       gap: 1rem;
       padding: 1rem;
       height: 20px;
@@ -74,20 +72,21 @@
         }
       }
     }
-    .hero-movie_description {
+    .movie-detail_description {
+      margin-top: 2rem;
       color: #ffffffcc;
       font-family: "Inter", Helvetica;
       font-size: 16px;
       font-weight: 400;
       letter-spacing: 0;
       line-height: normal;
-      text-align: center;
-      max-width: 436px;
+      text-align: start;
+      padding-right: 2rem;
     }
-    .hero-movie_actionBtn {
+    .movie-detail_actionBtn {
       display: flex;
       gap: 1rem;
-      .btn {
+      button {
         cursor: pointer;
         font-family: "SF Compact-Regular", Helvetica;
         font-size: 20px;
@@ -100,12 +99,12 @@
         align-items: center;
         justify-content: space-between;
       }
-      .btn:nth-child(1) {
+      button:nth-child(1) {
         color: #272424;
         border: 0;
         border-radius: 36px;
       }
-      .btn:nth-child(2) {
+      button:nth-child(2) {
         background-color: transparent;
         -webkit-backdrop-filter: blur(40px) brightness(100%);
         backdrop-filter: blur(40px) brightness(100%);
@@ -116,4 +115,12 @@
       }
     }
   }
+}
+.mainbody {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: relative;
+  margin-top: 2rem;
 }
