@@ -58,19 +58,19 @@ function mapMovieToGenre(movies: Movie[], genres: any[]): any[] {
   });
 }
 
-const ACTION_MOVIE_URL = "https://api.themoviedb.org/3/discover/movie";
-const GENRE_ID_COMEDY = 35; // Genre ID for Comedy
-export async function getAllComedyMovies(): Promise<Movie[]> {
+const DISCOVER_MOVIE_URL = "https://api.themoviedb.org/3/discover/movie";
+
+export async function getAllMoviesByGenre(GENRE_ID: number): Promise<Movie[]> {
   try {
     const response = await fetch(
-      `${ACTION_MOVIE_URL}?api_key=${apikey}&with_genres=${GENRE_ID_COMEDY}`
+      `${DISCOVER_MOVIE_URL}?api_key=${apikey}&with_genres=${GENRE_ID}`
     );
     if (!response.ok) {
       throw new Error("Error fetching comedy movies.");
     }
 
     const data = await response.json();
-    return data.results.slice(0, 10);
+    return data.results;
   } catch (error: any) {
     throw new Error(`Error fetching data: ${(error as Error).message}`);
   }

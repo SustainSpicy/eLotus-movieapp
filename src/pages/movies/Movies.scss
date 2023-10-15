@@ -1,0 +1,26 @@
+.movies-list_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 2rem;
+  margin-bottom: 5rem;
+  .movie-list_title {
+    color: #ffffffcc;
+    font-family: "SF Compact-Regular", Helvetica;
+    font-size: 80px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: normal;
+    max-width: 70%;
+    margin: 0;
+    text-align: center;
+  }
+  .movies-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    gap: 4rem;
+  }
+}

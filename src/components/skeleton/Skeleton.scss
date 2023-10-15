@@ -1,0 +1,36 @@
+.skeleton {
+  //   background: #ddd;
+  //   margin: 10px 0;
+  border-radius: 4px;
+  animation: skeleton-loading 1s linear infinite alternate;
+  opacity: 0.7;
+  @keyframes skeleton-loading {
+    0% {
+      background-color: hsl(200, 20%, 70%);
+    }
+    100% {
+      background-color: hsl(200, 20%, 95%);
+    }
+  }
+  &.text {
+    width: 100%;
+    height: 12px;
+  }
+
+  &.title {
+    width: 50%;
+    height: 20px;
+    margin-bottom: 15px;
+  }
+
+  &.avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+
+  &.thumbnail {
+    width: 100px;
+    height: 100px;
+  }
+}

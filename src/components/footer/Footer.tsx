@@ -10,10 +10,10 @@ const Footer = () => {
         <div className="text-wrapper-8">FAQ</div>
       </div>
       <div className="logo_img">
-        {/* <img
+        <img
           alt="Logo"
           src="https://c.animaapp.com/FexQVYB4/img/frame-31-1.svg"
-        /> */}
+        />
       </div>
     </footer>
   );

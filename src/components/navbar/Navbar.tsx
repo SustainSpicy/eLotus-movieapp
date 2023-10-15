@@ -6,7 +6,7 @@ const navItem = ["Movies", "Series", "Trending", "Categories"];
 
 const Navbar = () => {
   return (
-    <div className="navbar  ">
+    <div className="navbar wrapper sleek ">
       <div className="leftNav">
         <div className="logo_img">
           <Link to={`/`}>

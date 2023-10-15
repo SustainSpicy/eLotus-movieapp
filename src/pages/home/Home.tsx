@@ -3,40 +3,62 @@ import React, { useEffect, useState } from "react";
 import "./Home.scss";
 import HeroField from "../../components/hero/HeroField";
 import SliderComponent from "../../components/slider/Slider";
-import { getAllComedyMovies, getTrendingMovies } from "../../api";
+import { getAllMoviesByGenre, getTrendingMovies } from "../../api";
 import { Movie } from "../../constants/types";
+import { getRandomElementsFromArray } from "../../constants/util";
+import { genres } from "../../constants";
+import Skeleton from "../../components/skeleton/Skeleton";
+interface MovieGenre {
+  id: number;
+  name: string;
+  data: Movie[];
+}
 
 const Home = () => {
   const [trendingMovies, setTrendingMovies] = useState<Movie[]>([]);
-  const [comedyMovies, setComedyMovies] = useState<Movie[]>([]);
+  const [movieGenres, setMovieGenres] = useState<MovieGenre[]>([]);
+  const [loaded, setLoaded] = useState(false);
+
   useEffect(() => {
-    getTrendingMovies()
-      .then((data) => {
-        setTrendingMovies(data);
-      })
-      .catch((error) => {
+    const fetchData = async () => {
+      try {
+        const trendingData = await getTrendingMovies();
+        setTrendingMovies(trendingData);
+        const genresData = await Promise.all(
+          getRandomElementsFromArray(genres).map(async (item) => {
+            const moviesData = await getAllMoviesByGenre(item.id);
+            return {
+              id: item.id,
+              name: item.name,
+              data: moviesData.slice(0, 10),
+            };
+          })
+        );
+        const filteredGenres = genresData.slice(0, 3);
+        setMovieGenres(filteredGenres);
+        setLoaded(true);
+      } catch (error) {
         console.log(error);
-      });
-    getAllComedyMovies()
-      .then((data) => {
-        setComedyMovies(data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+      }
+    };
+
+    fetchData();
   }, []);
+
   return (
     <>
       <HeroField movie={trendingMovies[0]} />
-      <div className="main wrapper">
-        {/* <SliderComponent
+      <div className="main wrapper ">
+        <SliderComponent
           title={"Latest & Trending"}
           list={trendingMovies}
           isTrending={true}
-        /> */}
-
-        {/* <SliderComponent title={"Comedy"} list={comedyMovies} /> */}
-        {/* <SliderComponent title={"Animation"} list={trendingMovies} /> */}
+        />
+        {movieGenres.map((item) => {
+          return (
+            <SliderComponent title={item.name} id={item.id} list={item.data} />
+          );
+        })}
       </div>
     </>
   );

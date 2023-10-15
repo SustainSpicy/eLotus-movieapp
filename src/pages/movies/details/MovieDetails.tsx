@@ -25,7 +25,6 @@ const MovieDetails = () => {
         });
     }
   }, [id]);
-  console.log(movie);
 
   return (
     <>
@@ -38,25 +37,20 @@ const MovieDetails = () => {
         />
         <div className="blur overlay"></div>
         <div className="movie-detail_wrapper">
-          {/* <img
-            className="movie-detail_banner"
-            alt="banner"
-            src={`${process.env.REACT_APP_IMG_PATH}${movie?.poster_path}`}
-          /> */}
-          <h1 className="movie-detail_title">{movie?.original_title}</h1>
+          <h1 className="sleek movie-detail_title">{movie?.original_title}</h1>
           <div className="movie-detail_tags">
-            {movie?.genres?.map((item, index) => (
+            {movie?.genres?.slice(0, 2).map((item, index) => (
               <>
                 <span className="tag">{item.name}</span>
                 <div className="dot" />
               </>
             ))}
-            <span className="tag" style={{ color: "#d9d9d9cc" }}>
+            <span className="glassmorph" style={{ color: "#d9d9d9cc" }}>
               2h 28m
             </span>
           </div>
 
-          <div className="movie-detail_actionBtn">
+          <div className="sleek movie-detail_actionBtn">
             <button type="button">
               <AiFillPlayCircle color="" />
               Watch Now
@@ -66,7 +60,7 @@ const MovieDetails = () => {
               Add Watchlist
             </button>
           </div>
-          <p className="movie-detail_description">{movie?.overview}</p>
+          <p className="sleek movie-detail_description">{movie?.overview}</p>
         </div>
       </div>
       <div className="mainbody wrapper">

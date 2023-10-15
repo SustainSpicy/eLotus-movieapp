@@ -4,6 +4,10 @@
   margin-top: 2rem;
   display: flex;
   justify-content: space-between;
+  position: sticky;
+  bottom: 0;
+  margin: 1rem 0;
+  width: 100%;
   .footer-details {
     flex: 1;
     display: flex;
@@ -12,7 +16,6 @@
   }
   .logo_img {
     min-width: 100px;
-    background-color: #c22020;
     display: flex;
     align-items: center;
   }
