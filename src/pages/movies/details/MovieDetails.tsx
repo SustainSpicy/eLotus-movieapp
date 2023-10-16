@@ -5,7 +5,7 @@ import { AiFillPlayCircle } from "react-icons/ai";
 import { BsFillBookmarkFill } from "react-icons/bs";
 import "./MovieDetails.scss";
 import SliderComponent from "../../../components/slider/Slider";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getMovieDetails } from "../../../api";
 import { MovieDetailsInterface } from "../../../constants/types";
 import { log } from "console";
@@ -15,7 +15,7 @@ const MovieDetails = () => {
   const [movie, setMovie] = useState<MovieDetailsInterface>();
 
   useEffect(() => {
-    if (id) {
+    const fetchData = (id: string) => {
       getMovieDetails(id)
         .then((data) => {
           setMovie(data);
@@ -23,6 +23,9 @@ const MovieDetails = () => {
         .catch((error) => {
           console.log(error);
         });
+    };
+    if (id) {
+      fetchData(id);
     }
   }, [id]);
 
@@ -41,7 +44,9 @@ const MovieDetails = () => {
           <div className="movie-detail_tags">
             {movie?.genres?.slice(0, 2).map((item, index) => (
               <>
-                <span className="tag">{item.name}</span>
+                <Link to={`/movies/${item.id}/${item.name}`}>
+                  <span className="tag">{item.name}</span>
+                </Link>
                 <div className="dot" />
               </>
             ))}

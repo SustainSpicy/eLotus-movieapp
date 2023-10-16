@@ -4,10 +4,12 @@ import "./Navbar.scss";
 import { BsSearch } from "react-icons/bs";
 import { useEffect, useState } from "react";
 import Navbar_Skeleton from "./Navbar_Skeleton";
+import { useNavigate } from "react-router-dom";
+
 const navItem = [
   {
     name: "Movies",
-    url: "/movies",
+    url: "/",
   },
   {
     name: "Series",
@@ -17,17 +19,27 @@ const navItem = [
     name: "Trending",
     url: "/",
   },
-  {
-    name: "Categories",
-    url: "/",
-  },
 ];
 
 const Navbar = () => {
+  const navigate = useNavigate();
+  const [query, setQuery] = useState("");
   const [loaded, setLoaded] = useState(false);
+
   useEffect(() => {
     setLoaded(true);
   }, []);
+
+  const handleInputChange = (event: any) => {
+    setQuery(event.target.value);
+  };
+
+  const handleEnterPress = (event: any) => {
+    if (event.key === "Enter") {
+      navigate(`/search?q=${query}`);
+    }
+  };
+
   if (!loaded) {
     return <Navbar_Skeleton />;
   }
@@ -44,8 +56,8 @@ const Navbar = () => {
         </div>
         <div className="navItem_wrapper">
           {navItem.map((item, index) => (
-            <Link to={item.url}>
-              <NavItem text={item.name} key={index} />
+            <Link to={item.url} key={index}>
+              <NavItem text={item.name} />
             </Link>
           ))}
         </div>
@@ -55,6 +67,9 @@ const Navbar = () => {
           <input
             className="overlap-group-7"
             placeholder="Search Movies, Series..."
+            value={query}
+            onChange={handleInputChange}
+            onKeyDown={handleEnterPress}
           />
           <BsSearch color="white" />
         </div>

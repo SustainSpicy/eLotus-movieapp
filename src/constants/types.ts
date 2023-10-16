@@ -2,7 +2,7 @@ export interface Movie {
   adult: boolean;
   backdrop_path: string;
   genre_ids: number[];
-  genres: string[];
+  genres: Genre[];
   id: number;
   media_type: string;
   original_language: string;
@@ -16,7 +16,10 @@ export interface Movie {
   vote_average: number;
   vote_count: number;
 }
-
+export interface Genre {
+  id: number;
+  name: string;
+}
 export interface MovieDetailsInterface {
   adult: boolean;
   backdrop_path: string;

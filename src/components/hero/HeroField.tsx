@@ -10,6 +10,7 @@ const HeroField = ({ movie }: { movie: Movie | null }) => {
   if (!movie) {
     return <Hero_Skeleton />;
   }
+
   return (
     <div className="hero wrapper">
       <Navbar />
@@ -23,9 +24,11 @@ const HeroField = ({ movie }: { movie: Movie | null }) => {
       <div className="hero-detail_wrapper ">
         <h1 className="hero-detail_title">{movie?.original_title}</h1>
         <div className="hero-movie_tags">
-          {movie?.genres?.slice(0, 2).map((item, index) => (
+          {movie.genres.slice(0, 2).map((item, index) => (
             <div style={{ display: "flex", alignItems: "center" }} key={index}>
-              <span className="tag">{item}</span>
+              <Link to={`/movies/${item.id}/${item.name}`}>
+                <span className="tag">{item.name}</span>
+              </Link>
               <div className="dot" />
             </div>
           ))}
@@ -41,7 +44,7 @@ const HeroField = ({ movie }: { movie: Movie | null }) => {
             <AiFillPlayCircle color="" />
             Watch Now
           </button>
-          <Link to={`/movie/${movie?.id}/details`} className="btn">
+          <Link to={`/movie/${movie.id}/details`} className="btn">
             <IoIosArrowDroprightCircle color="white" />
             More Info
           </Link>

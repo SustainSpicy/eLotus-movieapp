@@ -4,6 +4,7 @@ import { getAllMoviesByGenre } from "../../api";
 import { Movie } from "../../constants/types";
 import MovieCard from "../../components/utils/MovieCard";
 import "./Movies.scss";
+import Navbar from "../../components/navbar/Navbar";
 
 const Movies = () => {
   const { id, genre } = useParams();
@@ -24,6 +25,7 @@ const Movies = () => {
 
   return (
     <div className="movies-list_wrapper wrapper">
+      <Navbar />
       <h1 className="sleek movie-list_title">{genre}</h1>
       <div className="sleek movies-list">
         {movies?.map((item, index) => {

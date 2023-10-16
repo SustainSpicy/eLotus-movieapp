@@ -48,7 +48,9 @@ function mapMovieToGenre(movies: Movie[], genres: any[]): any[] {
   return movies.map((movie: any) => {
     const movieGenres = movie.genre_ids.map((genreId: number) => {
       const genre = genres.find((g: any) => g.id === genreId);
-      return genre ? genre.name : "Unknown Genre";
+      return genre
+        ? { id: genre.id, name: genre.name } // Return both genre ID and name
+        : { id: genreId, name: "Unknown Genre" }; // If genre is not found, return the ID and "Unknown Genre"
     });
 
     return {
@@ -89,6 +91,22 @@ export async function getMovieDetails(
 
     const data: MovieDetailsInterface = await response.json();
     return data;
+  } catch (error: any) {
+    throw new Error(`Error fetching data: ${(error as Error).message}`);
+  }
+}
+const SEARCH_MOVIE_URL = "https://api.themoviedb.org/3/search/movie";
+export async function searchMovie(query: string): Promise<any> {
+  try {
+    const response = await fetch(
+      `${SEARCH_MOVIE_URL}?api_key=${apikey}&query=${query}`
+    );
+    if (!response.ok) {
+      throw new Error("Error fetching movie details.");
+    }
+
+    const data = await response.json();
+    return data.results;
   } catch (error: any) {
     throw new Error(`Error fetching data: ${(error as Error).message}`);
   }

@@ -59,7 +59,12 @@ const Home = () => {
         />
         {movieGenres.map((item) => {
           return (
-            <SliderComponent title={item.name} id={item.id} list={item.data} />
+            <SliderComponent
+              key={item.id}
+              title={item.name}
+              id={item.id}
+              list={item.data}
+            />
           );
         })}
       </div>
