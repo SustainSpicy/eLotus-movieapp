@@ -6,7 +6,7 @@ import { AiFillPlayCircle } from "react-icons/ai";
 import { IoIosArrowDroprightCircle } from "react-icons/io";
 import Hero_Skeleton from "./Hero_Skeleton";
 
-const HeroField = ({ movie }: { movie: Movie }) => {
+const HeroField = ({ movie }: { movie: Movie | null }) => {
   if (!movie) {
     return <Hero_Skeleton />;
   }
@@ -14,8 +14,9 @@ const HeroField = ({ movie }: { movie: Movie }) => {
     <div className="hero wrapper">
       <Navbar />
       <img
-        className="hero_background"
+        className="hero_background fade-in "
         alt="hero_background"
+        loading="lazy"
         src={`${process.env.REACT_APP_IMG_PATH}${movie?.backdrop_path}`}
       />
       <div className="blur overlay"></div>

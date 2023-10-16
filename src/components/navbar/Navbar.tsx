@@ -2,9 +2,35 @@ import { Link } from "react-router-dom";
 import NavItem from "./NavItem";
 import "./Navbar.scss";
 import { BsSearch } from "react-icons/bs";
-const navItem = ["Movies", "Series", "Trending", "Categories"];
+import { useEffect, useState } from "react";
+import Navbar_Skeleton from "./Navbar_Skeleton";
+const navItem = [
+  {
+    name: "Movies",
+    url: "/movies",
+  },
+  {
+    name: "Series",
+    url: "/",
+  },
+  {
+    name: "Trending",
+    url: "/",
+  },
+  {
+    name: "Categories",
+    url: "/",
+  },
+];
 
 const Navbar = () => {
+  const [loaded, setLoaded] = useState(false);
+  useEffect(() => {
+    setLoaded(true);
+  }, []);
+  if (!loaded) {
+    return <Navbar_Skeleton />;
+  }
   return (
     <div className="navbar wrapper sleek ">
       <div className="leftNav">
@@ -18,7 +44,9 @@ const Navbar = () => {
         </div>
         <div className="navItem_wrapper">
           {navItem.map((item, index) => (
-            <NavItem text={item} key={index} />
+            <Link to={item.url}>
+              <NavItem text={item.name} key={index} />
+            </Link>
           ))}
         </div>
       </div>

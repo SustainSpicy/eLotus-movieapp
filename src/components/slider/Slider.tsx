@@ -4,6 +4,7 @@ import Slider from "react-slick";
 import { Movie } from "../../constants/types";
 import { Link } from "react-router-dom";
 import MovieCard from "../utils/MovieCard";
+import Slide_Skeleton from "./Slide_Skeleton";
 
 const SliderComponent = ({
   list,
@@ -48,6 +49,9 @@ const SliderComponent = ({
     ],
   };
 
+  if (!list || list.length < 1) {
+    return <Slide_Skeleton />;
+  }
   return (
     <div
       className={
@@ -71,16 +75,6 @@ const SliderComponent = ({
       <Slider {...settings} className="slider-rail ">
         {list.map((movie, index) => (
           <Link key={index} to={`/movie/${movie.id}/details`}>
-            {/* <div className="slider-item ">
-              {isTrending && (
-                <h1 className="slider-item_number">{index + 1}</h1>
-              )}
-              <img
-                className={isTrending ? "isTrending" : ""}
-                alt="movie"
-                src={`${imgPath}${movie.poster_path}`}
-              />
-            </div> */}
             <MovieCard
               isTrending={isTrending}
               index={index}

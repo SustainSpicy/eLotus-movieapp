@@ -6,8 +6,8 @@ const Hero_Skeleton = () => {
   return (
     <div className="hero wrapper">
       <Navbar />
+      <Skeleton type="overlay" />
 
-      <div className="blur overlay"></div>
       <div className="hero-detail_wrapper ">
         <Skeleton type="title" />
         <div className="hero-movie_tags">
@@ -15,10 +15,10 @@ const Hero_Skeleton = () => {
           <Skeleton type="thumbnail" />.
           <Skeleton type="thumbnail" />
         </div>
-        <Skeleton type="text" />
+        {/* <Skeleton type="text" /> */}
         <div className="hero-movie_actionBtn">
-          <Skeleton type="thumbnail" />
-          <Skeleton type="thumbnail" />
+          <Skeleton type="button" />
+          <Skeleton type="button" />
         </div>
       </div>
     </div>

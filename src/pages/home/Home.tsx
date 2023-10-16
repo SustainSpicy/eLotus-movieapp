@@ -42,7 +42,10 @@ const Home = () => {
       }
     };
 
-    fetchData();
+    //to showcase the skeleton loader
+    setTimeout(() => {
+      fetchData();
+    }, 2000);
   }, []);
 
   return (
