@@ -13,10 +13,10 @@ const Footer = () => {
   return (
     <footer className="footer wrapper sleek">
       <div className="footer-details">
-        <p className="text-wrapper-8">© 2023 STREAM X. All Rights Reserved.</p>
-        <div className="text-wrapper-8">Terms Of Use</div>
-        <div className="text-wrapper-8">Privacy Policy</div>
-        <div className="text-wrapper-8">FAQ</div>
+        <p className="">© 2023 STREAM X. All Rights Reserved.</p>
+        <p className="">Terms Of Use</p>
+        <p className="">Privacy Policy</p>
+        <p className="">FAQ</p>
       </div>
       <div className="logo_img">
         <img

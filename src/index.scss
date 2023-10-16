@@ -37,7 +37,10 @@ code {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  // background-color: #111111;
+
+  @media (max-width: 480px) {
+    margin-top: -200px;
+  }
 }
 
 a {
