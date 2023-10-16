@@ -9,10 +9,12 @@ import { Link, useParams } from "react-router-dom";
 import { getMovieDetails } from "../../../api";
 import { MovieDetailsInterface } from "../../../constants/types";
 import { log } from "console";
+import { useAlertContext } from "../../../provider/alert";
 
 const MovieDetails = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState<MovieDetailsInterface>();
+  const [openAlertBar] = useAlertContext();
 
   useEffect(() => {
     const fetchData = (id: string) => {
@@ -21,7 +23,10 @@ const MovieDetails = () => {
           setMovie(data);
         })
         .catch((error) => {
-          console.log(error);
+          openAlertBar({
+            type: "error",
+            msg: error.message || "An error occurred",
+          });
         });
     };
     if (id) {

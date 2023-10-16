@@ -14,6 +14,7 @@ function App() {
         <Route path="/movies/:id/:genre" element={<Movies />} />
         <Route path="/movie/:id/details" element={<MovieDetails />} />
         <Route path="/search" element={<SearchResult />} />
+        <Route path="*" element={<h1>Wrong address</h1>} />
       </Routes>
 
       <Footer />

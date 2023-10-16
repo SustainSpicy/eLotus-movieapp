@@ -2,7 +2,7 @@ import { Movie, MovieDetailsInterface } from "../constants/types";
 
 const apikey = process.env.REACT_APP_API_KEY;
 
-const TRENDING_MOVIE_URL = "https://api.themoviedb.org/3/trending/movie/week";
+const TRENDING_MOVIE_URL = "https://api.thdemoviedb.org/3/trending/movie/week";
 export async function getTrendingMovies(): Promise<any> {
   try {
     const moviesResponse = await fetch(
@@ -61,7 +61,6 @@ function mapMovieToGenre(movies: Movie[], genres: any[]): any[] {
 }
 
 const DISCOVER_MOVIE_URL = "https://api.themoviedb.org/3/discover/movie";
-
 export async function getAllMoviesByGenre(GENRE_ID: number): Promise<Movie[]> {
   try {
     const response = await fetch(
@@ -78,12 +77,13 @@ export async function getAllMoviesByGenre(GENRE_ID: number): Promise<Movie[]> {
   }
 }
 
+const MOVIE_DETAIL_URL = "https://api.themoviedb.org/3/movie";
 export async function getMovieDetails(
   movieId: string
 ): Promise<MovieDetailsInterface> {
   try {
     const response = await fetch(
-      `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apikey}`
+      `${MOVIE_DETAIL_URL}/${movieId}?api_key=${apikey}`
     );
     if (!response.ok) {
       throw new Error("Error fetching movie details.");

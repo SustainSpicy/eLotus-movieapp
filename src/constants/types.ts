@@ -16,6 +16,13 @@ export interface Movie {
   vote_average: number;
   vote_count: number;
 }
+
+export interface MovieGenre {
+  id: number;
+  name: string;
+  data: Movie[];
+}
+
 export interface Genre {
   id: number;
   name: string;

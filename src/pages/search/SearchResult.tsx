@@ -21,6 +21,7 @@ const SearchResult = () => {
 
         setSearchResults(moviesData);
       } catch (error) {
+        alert(error);
         console.log(error);
       }
     };
@@ -65,7 +66,6 @@ const SearchResult = () => {
           : searchResults?.map((item, index) => {
               return (
                 <Link key={index} to={`/movie/${item.id}/details`}>
-                  {index + 1}{" "}
                   <div className="movie-list_column">
                     <span>
                       {index + 1}| Title: {item.title}

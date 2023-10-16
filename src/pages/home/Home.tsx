@@ -4,21 +4,15 @@ import "./Home.scss";
 import HeroField from "../../components/hero/HeroField";
 import SliderComponent from "../../components/slider/Slider";
 import { getAllMoviesByGenre, getTrendingMovies } from "../../api";
-import { Movie } from "../../constants/types";
+import { Movie, MovieGenre } from "../../constants/types";
 import { getRandomElementsFromArray } from "../../constants/util";
 import { genres } from "../../constants";
-import Skeleton from "../../components/skeleton/Skeleton";
-interface MovieGenre {
-  id: number;
-  name: string;
-  data: Movie[];
-}
+import { useAlertContext } from "../../provider/alert";
 
 const Home = () => {
   const [trendingMovies, setTrendingMovies] = useState<Movie[]>([]);
   const [movieGenres, setMovieGenres] = useState<MovieGenre[]>([]);
-  const [loaded, setLoaded] = useState(false);
-
+  const [openAlertBar] = useAlertContext();
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -36,9 +30,11 @@ const Home = () => {
         );
         const filteredGenres = genresData.slice(0, 3);
         setMovieGenres(filteredGenres);
-        setLoaded(true);
-      } catch (error) {
-        console.log(error);
+      } catch (error: any) {
+        openAlertBar({
+          type: "error",
+          msg: error.message || "An error occurred",
+        });
       }
     };
 

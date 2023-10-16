@@ -5,11 +5,13 @@ import { Movie } from "../../constants/types";
 import MovieCard from "../../components/utils/MovieCard";
 import "./Movies.scss";
 import Navbar from "../../components/navbar/Navbar";
+import { useAlertContext } from "../../provider/alert";
 
 const Movies = () => {
   const { id, genre } = useParams();
   const [movies, setMovies] = useState<Movie[]>();
   const [viewMode, setViewMode] = useState("grid");
+  const [openAlertBar] = useAlertContext();
 
   useEffect(() => {
     const fetchData = async (id: number) => {
@@ -17,8 +19,11 @@ const Movies = () => {
         const moviesData = await getAllMoviesByGenre(id);
 
         setMovies(moviesData);
-      } catch (error) {
-        console.log(error);
+      } catch (error: any) {
+        openAlertBar({
+          type: "error",
+          msg: error.message || "An error occurred",
+        });
       }
     };
     if (id) fetchData(parseInt(id));
