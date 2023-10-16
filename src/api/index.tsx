@@ -2,7 +2,7 @@ import { Movie, MovieDetailsInterface } from "../constants/types";
 
 const apikey = process.env.REACT_APP_API_KEY;
 
-const TRENDING_MOVIE_URL = "https://api.thdemoviedb.org/3/trending/movie/week";
+const TRENDING_MOVIE_URL = "https://api.themoviedb.org/3/trending/movie/week";
 export async function getTrendingMovies(): Promise<any> {
   try {
     const moviesResponse = await fetch(
