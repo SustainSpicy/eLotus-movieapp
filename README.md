@@ -26,6 +26,7 @@ StreamX is a dynamic web application built using ReactJS and SCSS, designed to p
 The Customizer is built using the following technologies:
 
 - React
+- Typescript
 - Scss
 - React-router-dom
 - React slick
