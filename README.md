@@ -19,6 +19,7 @@ StreamX is a dynamic web application built using ReactJS and SCSS, designed to p
 - Responsive Design
 - Segmented list control
 - Skeleton loading
+- Dynamic error display
 
 ## Technologies used
 
