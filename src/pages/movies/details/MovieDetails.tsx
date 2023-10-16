@@ -49,7 +49,7 @@ const MovieDetails = () => {
           <div className="movie-detail_tags">
             {movie?.genres?.slice(0, 2).map((item, index) => (
               <>
-                <Link to={`/movies/${item.id}/${item.name}`}>
+                <Link to={`/movies/${item.id}/${item.name}`} key={index}>
                   <span className="tag">{item.name}</span>
                 </Link>
                 <div className="dot" />
@@ -73,12 +73,7 @@ const MovieDetails = () => {
           <p className="sleek movie-detail_description">{movie?.overview}</p>
         </div>
       </div>
-      <div className="mainbody wrapper">
-        {/* <SliderComponent
-          title={"More like this"}
-          list={["1", "2", "3", "6", "7", "8"]}
-        /> */}
-      </div>
+      <div className="mainbody wrapper"></div>
     </>
   );
 };
