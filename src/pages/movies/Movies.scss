@@ -5,8 +5,24 @@
   width: 100%;
   gap: 3rem;
   margin-bottom: 5rem;
-  .nabar {
-    position: relative;
+  .navbar {
+    position: relative !important;
+  }
+  .segmented-control {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    button {
+      padding: 0.5rem 1rem;
+      border: none;
+      background-color: #007bff;
+      color: #ffffff;
+      font-size: 16px;
+      cursor: pointer;
+      &.active {
+        background-color: #0056b3;
+      }
+    }
   }
   .movie-list_title {
     color: #ffffffcc;
@@ -25,5 +41,21 @@
     justify-content: center;
     width: 100%;
     gap: 4rem;
+    &.list {
+      flex-direction: column;
+    }
+    .movie-list_column {
+      color: #ffffffcc;
+      font-family: "SF Compact-Regular", Helvetica;
+      font-size: 16px;
+      font-weight: bold;
+      letter-spacing: 0;
+      line-height: normal;
+      display: flex;
+      justify-content: space-between;
+      &:hover {
+        color: yellow;
+      }
+    }
   }
 }
