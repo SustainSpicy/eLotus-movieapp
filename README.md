@@ -1,5 +1,7 @@
 # StreamX by OYELEKE ISREAL TIMILEHIN
 
+![Banner]('/banner.png')
+
 - [Description](#Description)
 - [Key Features](#key-features)
 - [Technologies used](#technologies-used)

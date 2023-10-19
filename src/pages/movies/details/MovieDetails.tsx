@@ -42,6 +42,7 @@ const MovieDetails = () => {
           className="movie-detail_background"
           alt="movie-detail_background"
           src={`${process.env.REACT_APP_IMG_PATH}${movie?.backdrop_path}`}
+          loading="lazy"
         />
         <div className="blur overlay"></div>
         <div className="movie-detail_wrapper">
