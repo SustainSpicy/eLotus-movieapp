@@ -1,6 +1,6 @@
 # StreamX by OYELEKE ISREAL TIMILEHIN
 
-![Banner]('/public/banner.png')
+![Banner]('public/banner.png')
 
 - [Description](#Description)
 - [Key Features](#key-features)
